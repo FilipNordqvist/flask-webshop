@@ -44,16 +44,19 @@ def send_email():
 
     try:
         r = resend.Emails.send({
-            "from": "hnf.sweden@gmail.com",
+            "from": "onboarding@resend.dev",
             "to": email,
             "subject": "New message from webshop",
             "html": f"<p>{message}</p>"
         })
-        print(r)  # För loggning/debug
+        print("✅ Resend response:", r)
         return redirect(url_for('contact'))
     except Exception as e:
-        print("Error:", e)
-        return "Failed to send email", 500
+        import traceback
+        print("❌ Error from Resend:", e)
+        traceback.print_exc()  # <-- Detta visar full felstack
+        return f"Failed to send email: {e}", 500
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8080)
