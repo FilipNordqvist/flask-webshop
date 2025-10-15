@@ -44,9 +44,9 @@ def send_email():
 
     try:
         r = resend.Emails.send({
-            "from": "onboarding@resend.dev",
+            "from": "hnf.sweden@gmail.com",
             "to": email,
-            "subject": "New message from webshop",
+            "subject": "New message from HNF webshop",
             "html": f"<p>{message}</p>"
         })
         print("✅ Resend response:", r)
