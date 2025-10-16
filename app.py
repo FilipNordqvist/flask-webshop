@@ -10,13 +10,14 @@ load_dotenv()
 
 resend.api_key = os.getenv("RESEND_API_KEY")
 
+"""
 r = resend.Emails.send({
-  "from": "onboarding@resend.dev",
+  "from": "info@nordqvist.tech",
   "to": "filip_nordqvist@hotmail.com",
   "subject": "Hello World",
   "html": "<p>Congrats on sending your <strong>first email</strong>!</p>"
 })
-
+"""
 
 @app.route('/')
 def home():
@@ -44,7 +45,7 @@ def send_email():
 
     try:
         r = resend.Emails.send({
-            "from": "onboarding@resend.dev",
+            "from": "info@nordqvist.tech",
             "to": email,
             "subject": "New message from HNF webshop",
             "html": f"<p>{message}</p>"
